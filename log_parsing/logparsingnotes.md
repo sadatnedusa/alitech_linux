@@ -47,3 +47,16 @@ grep "child failed" /var/log/messages* | awk '{$3=""; $NF=""; print $0}' | uniq 
 ```
 <> | grep -v "Ips\|Received request\|Received Override\|Policy supports\|Override policy"
 ```
+
+---
+
+### Extract & Check Memory Errors
+
+```
+tar xzvf sysinfo-*.tgz
+grep -i " ECC\| Err\|POST Err" sysinfo-Log_*/sysinfo_log.txt | awk '{$1=""; print $0}' | awk -F":" '{$2=""; $3=":00"; print $0 }' | sort | uniq -c | grep Channel
+
+grep DIMM_ -A2 sysinfo-Log_*/sysinfo_log.txt | grep -v "Slot\|==\|--\|\/20" | awk '{ORS=NR % 2? "    ": "\n"; print}' | awk 'NF'
+
+grep "Slot:\|MemoryType:\|SerialNo:\|Manufacturer:\|PartNumber:" sysinfo-Log_*/sysinfo_log.txt | awk '{ORS=NR % 5? " ": "\n"; print}'
+```
