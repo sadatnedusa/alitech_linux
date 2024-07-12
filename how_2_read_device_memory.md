@@ -1,17 +1,19 @@
-# How check Reserved memory space for various devices/cards on linux machine
+# How to read Reserved memory space for various devices/cards on linux machine
 
 ## 
 
+```
 	dmidecode -t bios
+```
 	
-	Read the memory from C:0000 to F:FFFF without the need for dmidecode
+## Read the memory from C:0000 to F:FFFF without the need for dmidecode
 
-		dd if=/dev/mem bs=1k skip=768  count=256 2>/dev/null | strings -n 8
+```
+dd if=/dev/mem bs=1k skip=768  count=256 2>/dev/null | strings -n 8
+```
 
-
-
-This worked for me in VirtualBox:
-
+## This worked for me in VirtualBox:
+```
 $ grep ROM /proc/iomem
 which results in:
 000c0000-000c7fff : Video ROM
@@ -20,19 +22,26 @@ which results in:
 
 System ROM starts at 000f0000, which is 0xF0000.
 
+```
+
 Open browser and go to http://www.hexadecimaldictionary.com/hexadecimal/0xF0000. This says the decimal value is 983040, which divided by 1024 to get kilobytes is 960 which is the starting point and the value for 'skip'.
 
-The end number is 0xFFFFF which is 1048575 which is just shy of 1024. 1024 - 960 is 64, which is the value of 'count'.
+- The end number is 0xFFFFF which is 1048575 which is just shy of 1024. 1024 - 960 is 64, which is the value of 'count'.
 
-The command to run to dump the bios is thus:
+- The command to run to dump the bios is thus:
 
-	dd if=/dev/mem of=pcbios.bin bs=1k skip=960 count=64
+```
+dd if=/dev/mem of=pcbios.bin bs=1k skip=960 count=64
+```
+
+---
 
 
 # Real time example
 
 ## Intel Server Wolf pass cpu
 
+```
 # cat /proc/iomem
 00000000-00000fff : Reserved
 00001000-00097fff : System RAM
@@ -101,6 +110,9 @@ ff800000-100bfffff : Reserved
   ae03005000-ae03dfffff : Kernel bss
   bfff000000-c03effffff : Crash kernel
 
+```
+
+## bash script
 
 ```bash
 # cat memDifference
@@ -139,8 +151,6 @@ If you want to modify the hex, the best tool is:
 
 ```
 	# hexcurse
-
-
 
 	# ./memDifference 0xb8900000 0xb890ffff /tmp/megasas
 ```
