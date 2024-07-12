@@ -1,19 +1,19 @@
 # messages Log
 
-### Full Messages Check
+> Full Messages Check
 ```
 for i in $(ls -1tr /var/log/messages*); do cat $i >> messages-combined; done
 egrep -i 'fail|fault|warn|invalid|conflict|crit|excep|cannot|unable|vmalloc|blocked|call trace' messages-combined | less
 ```
 
 
-### Short Message Check
+> Short Message Check
 ```
 egrep -i 'fail|fault|warn|invalid|conflict|crit|excep|cannot|unable|vmalloc|blocked|call trace' /var/log/messages | less
 ```
 
 
-### Short Message Check
+> Short Message Check
 
 ```
 grep -B5 -A45 "Call Trace" /var/log/messages* | grep -vi "getty\|of user"
@@ -21,14 +21,14 @@ grep "Call Trace" /var/log/messages*
 ```
 
 
-### Kernel Messages: Blocked Process
+> Kernel Messages: Blocked Process
 ```
 grep "blocked for more than 120 seconds" /var/log/messages*
 ```
 
 
 
-### Memory Allocation Messages
+> Memory Allocation Messages
 
 ```
 grep "to vmalloc" /var/log/messages* | awk '{$3="_TIME_"; print $0}' | uniq -c
@@ -40,10 +40,10 @@ grep "child failed" /var/log/messages* | awk '{$3=""; $NF=""; print $0}' | uniq 
 
 > Remove Tape Messages
 ```
-| grep -v "CDB\|hostbyte\|reservation conflict"
+<> | grep -v "CDB\|hostbyte\|reservation conflict"
 ```
 
 > Remove SDC / IPS Messages
 ```
->| grep -v "Ips\|Received request\|Received Override\|Policy supports\|Override policy"
+<> | grep -v "Ips\|Received request\|Received Override\|Policy supports\|Override policy"
 ```
