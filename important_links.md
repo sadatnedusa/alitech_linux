@@ -1,4 +1,4 @@
-#RedHat useful links
+# RedHat useful links
 ---
 
 [How to troubleshoot kernel crashes, hangs, or reboots with kdump on Red Hat Enterprise Linux](https://access.redhat.com/solutions/6038)
