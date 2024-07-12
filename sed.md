@@ -140,6 +140,10 @@ http {
 ```
 # cat /etc/nginx/nginx.conf
 ```
+
+## Output
+
+```
 user nginx;
 worker_processes auto;
 error_log /var/log/nginx/error.log;
@@ -177,4 +181,4 @@ http {
         }
     }
 }
-
+```
