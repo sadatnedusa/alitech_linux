@@ -40,6 +40,7 @@ $ sed -i.bak '/^\s*#/d;/^$/d' nginx.conf
 # cat /etc/nginx/nginx.conf
 ```
 
+> blockquote
 # For more information on configuration, see:
 #   * Official English Documentation: http://nginx.org/en/docs/
 #   * Official Russian Documentation: http://nginx.org/ru/docs/
@@ -97,12 +98,12 @@ http {
             location = /50x.html {
         }
     }
-
-# Settings for a TLS enabled server.
-#
-#    server {
-#        listen       443 ssl http2 default_server;
-#        listen       [::]:443 ssl http2 default_server;
+> Output
+> Output # Settings for a TLS enabled server.
+> Output#
+> Output#    server {
+> Output#        listen       443 ssl http2 default_server;
+> Output#        listen       [::]:443 ssl http2 default_server;
 #        server_name  _;
 #        root         /usr/share/nginx/html;
 #
