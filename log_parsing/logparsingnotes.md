@@ -32,7 +32,18 @@ grep "blocked for more than 120 seconds" /var/log/messages*
 
 ```
 grep "to vmalloc" /var/log/messages* | awk '{$3="_TIME_"; print $0}' | uniq -c
-grep "V-5-3-0\|V-5-0-2031" /var/log/messages* | awk '{$3=""; print $0}' | cut -d' ' -f1-11 | sort -n | uniq -c
-grep "child failed" /var/log/messages* | awk '{$3=""; $NF=""; print $0}' | uniq -c
 
+grep "V-5-3-0\|V-5-0-2031" /var/log/messages* | awk '{$3=""; print $0}' | cut -d' ' -f1-11 | sort -n | uniq -c
+
+grep "child failed" /var/log/messages* | awk '{$3=""; $NF=""; print $0}' | uniq -c
+```
+
+> Remove Tape Messages
+```
+| grep -v "CDB\|hostbyte\|reservation conflict"
+```
+
+> Remove SDC / IPS Messages
+```
+>| grep -v "Ips\|Received request\|Received Override\|Policy supports\|Override policy"
 ```
