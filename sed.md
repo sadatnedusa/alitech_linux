@@ -3,7 +3,7 @@
 ```
 # sed -i 'xd' ~/.ssh/known_hosts
 ```
-## note : x -> line number, d -> deletes
+#### note : x -> line number, d -> deletes
 ```
 # sed -i '/<ipaddr|hostname>/d' ~/.ssh/known_hosts
 ```
