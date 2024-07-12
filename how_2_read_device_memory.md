@@ -1,6 +1,6 @@
 # How to read Reserved memory space for various devices/cards on linux machine
 
-### Reference material taken from https://unix.stackexchange.com/questions/126132/how-to-dump-bios-data-to-a-file
+### Credit goes to https://unix.stackexchange.com/questions/126132/how-to-dump-bios-data-to-a-file
 
 ## 
 
@@ -122,7 +122,7 @@ dd if=/dev/mem of=$action3 skip=$part2 bs=1 count=$part1 status=progress
 
 ---
 
-## ** Change the permissions of the file "memDifference" 755**
+## **Change the permissions of the file "memDifference" 755**
 
 ```bash
 	# chmod 755 memDifference
@@ -142,6 +142,7 @@ If you want to modify the hex, the best tool is:
 
 #./memDifference 0xb8900000 0xb890ffff /tmp/megasas
 
+```
 
 Dumping memory with dd & /dev/mem with these values:
 
@@ -151,5 +152,3 @@ start location ~ hex: 0xb890ffff / decimal: 3127722kb/s
 65536+0 records in
 65536+0 records out
 65536 bytes (66 kB, 64 KiB) copied, 0.616504 s, 106 kB/s
-
-```
