@@ -1,8 +1,8 @@
-#deadlock
+# **deadlock**
 
 A **deadlock** in Linux (or any operating system) occurs when two or more processes are unable to proceed because each is waiting for a resource that the other process holds, leading to a situation where none of them can make progress. This is typically caused by poor resource allocation in concurrent processes, often involving locks on files, databases, or system resources.
 
-### Key Characteristics of Deadlock:
+## Key Characteristics of Deadlock:
 For a deadlock to occur, the following conditions must be true (also known as the **Coffman Conditions**):
 1. **Mutual Exclusion**: At least one resource must be held in a non-shareable mode. Only one process can use the resource at any time.
 2. **Hold and Wait**: A process is holding at least one resource and waiting to acquire additional resources that are currently held by other processes.
@@ -10,8 +10,6 @@ For a deadlock to occur, the following conditions must be true (also known as th
 4. **Circular Wait**: A circular chain of processes exists, where each process is waiting for a resource that the next process in the chain holds.
 
 When these four conditions occur simultaneously, a deadlock can happen.
-
----
 
 ### Deadlock Example in Linux:
 
