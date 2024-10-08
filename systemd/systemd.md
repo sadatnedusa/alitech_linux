@@ -28,3 +28,23 @@ If you'd like assistance with a specific unit or need help interpreting the outp
 - It lists the services and shows how much time each took to start up. 
 - This can be useful for identifying any services that are taking longer than expected to start, potentially impacting system boot times.
 - If you'd like more specific information or need assistance interpreting the output of systemd-analyze blame, feel free to ask!
+
+---
+# systemctl_list-units_--failed
+
+The `systemctl list-units --failed` command lists all the units that have failed on your system. This is useful for identifying services or other systemd-managed resources that are not functioning correctly.
+
+Here's what each part of the command does:
+
+- **`systemctl`**: The main command to control the systemd system and service manager.
+- **`list-units`**: Lists all loaded units (services, sockets, devices, etc.).
+- **`--failed`**: Filters the output to show only units that have failed.
+
+The output will show:
+- **UNIT**: The name of the unit.
+- **LOAD**: Whether the unit's configuration has been properly loaded.
+- **ACTIVE**: This will usually be "failed."
+- **SUB**: A more detailed state (e.g., "failed").
+- **DESCRIPTION**: A brief description of the unit.
+
+This command helps you quickly identify problematic units that may require attention or debugging.
