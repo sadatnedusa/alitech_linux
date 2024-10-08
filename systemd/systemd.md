@@ -48,3 +48,35 @@ The output will show:
 - **DESCRIPTION**: A brief description of the unit.
 
 This command helps you quickly identify problematic units that may require attention or debugging.
+
+---
+# systemd-analyze dump
+
+The `systemd-analyze dump` command is used to output detailed information about the systemd state and configuration. It provides a snapshot of the current state of the systemd manager, including various runtime parameters and information about all loaded units, their dependencies, and their configuration.
+
+### Key Points about `systemd-analyze dump`:
+
+- **Overview**: The command outputs a comprehensive dump that includes:
+  - The state of the `systemd` manager.
+  - Information about units, including their types, load states, and activation states.
+  - Dependency trees of the units.
+  - Active job lists, which show currently running operations.
+
+- **Usage**: To use the command, simply run:
+  ```bash
+  systemd-analyze dump
+  ```
+
+- **Output**: The output can be quite verbose and includes sections for different types of information. It's often more detailed than typical commands like `list-units` or `blame`.
+
+- **Use Cases**: This command is helpful for:
+  - Troubleshooting issues with unit failures.
+  - Understanding the overall state of the system and how different units interact.
+  - Getting insights into performance bottlenecks during boot or unit activation.
+
+### Example Command:
+```bash
+systemd-analyze dump
+```
+
+If you're looking for specific information from the dump or need help interpreting the output, feel free to ask!
