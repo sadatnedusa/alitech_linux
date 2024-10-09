@@ -1,10 +1,8 @@
 # Overview of Prometheus architecture
 
 ### Prometheus Architecture Diagram
-
-
-![image](https://github.com/user-attachments/assets/773ad315-6750-46fd-af42-9ed7cac958f2)
-
+ref:
+https://github.com/prometheus/prometheus/blob/main/documentation/internal_architecture.md
 
 **Description of the Architecture:**
 1. **Prometheus Server:** The core component that scrapes, stores, and queries metrics.
