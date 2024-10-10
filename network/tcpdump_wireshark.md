@@ -76,3 +76,20 @@ Ref: https://serverfault.com/questions/38626/how-can-i-read-pcap-files-in-a-frie
 tcpdump -i nic5 -w /tmp/nic5.pcap
 tcpdump -i nic6 -w /tmp/nic6.pcap
 ```
+
+---
+
+# Wireshark  filters
+
+| **Wireshark Filter** | **Description** |
+|----------------------|-----------------|
+| `tcp.analysis.flags`  | Shows TCP issues that Wireshark has flagged (e.g., retransmissions, duplicate ACKs, out-of-order packets). |
+| `ip.src == 172.21.60.33` | Filters the traffic where the source IP address is `172.21.60.33`. This can be used to isolate traffic coming from a specific IP. |
+| `!(arp or dns or icmp)` | Excludes ARP, DNS, and ICMP traffic from the results. This helps clean up the capture by removing these protocols if they are not relevant. |
+| `tcp contains facebook` | Searches for TCP packets that contain the word "facebook" in the data payload, likely for identifying Facebook-related traffic. |
+| `tcp.flags.syn == 1` | Filters for TCP SYN packets. SYN packets are used during the TCP three-way handshake to initiate a connection. |
+| `tcp.flags.reset == 1` | Filters for TCP RST (reset) packets. These are sent when a connection is forcefully closed or reset. |
+| `frame contains google` | Searches for any packets that contain the word "google" in the frame, useful for identifying Google-related traffic. |
+| `arp.duplicate-address-detected` | Detects duplicate IP addresses on the network by identifying ARP packets indicating a duplicate IP address detection. |
+
+These filters help narrow down specific network traffic, diagnose issues, or monitor for particular content or events within the captured data. Would you like more details on any of these filters or help applying them in Wireshark?
