@@ -2,10 +2,7 @@
 
 ```
 # sed -i 'xd' ~/.ssh/known_hosts
-
-
 # ssh-keygen -f "~/.ssh/known_hosts" -R "192.168.10.20"
-
 ```
 #### note : x -> line number, d -> deletes
 ```
@@ -26,14 +23,11 @@ $ sed -e '5,10d;12d' file
 $ sed -i.bak -e '5,10d;12d' file
 ```
 
-
 ---
 
 The below command will search any blank space and later it will has hash symbol (#) and then
 later find any line which start with blank line 
 In summary below command remove all line which has comments (#) and any blank lines
-
-
 
 
 $ sed -i.bak '/^\s*#/d;/^$/d' nginx.conf
@@ -185,4 +179,10 @@ http {
         }
     }
 }
+```
+---
+
+Remove Blank Lines
+```
+| sed '/^$/d'
 ```
