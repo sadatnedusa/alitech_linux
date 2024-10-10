@@ -2,6 +2,8 @@
 
 `systemd` is a system and service manager for Linux operating systems. It initializes the system, manages services, and provides various features for service management, logging, and configuration. It aims to unify service behavior across different Linux distributions.
 
+## Refer : https://opensource.com/article/20/4/systemd for more information
+
 ### Key Concepts
 
 1. **Units**: The core building blocks of `systemd`. There are several types of units, including:
