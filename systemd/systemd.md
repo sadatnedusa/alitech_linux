@@ -146,7 +146,7 @@
   ln -sf /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
   ```
 
-This cheat sheet should make it easier to manage services, logs, and system states whether you're familiar with **SysVinit** or new to **systemd**! Let me know if you need more information or examples.
+This cheat sheet should make it easier to manage services, logs, and system states whether you're familiar with **SysVinit** or new to **systemd**!
 
 ---
 
