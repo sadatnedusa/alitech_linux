@@ -60,11 +60,11 @@ The `env` shebang (`#!/usr/bin/env python3`) helps you run Python 3 scripts in a
 
 ---
 
-Bit detail explain
+# Bit detail explanation
 
-The line `#!/usr/bin/env python3` is known as a **shebang** (or "hashbang"). It's used in a script to specify the interpreter that should be used to run the script. Let’s break it down in detail so that you can understand how it works and why it’s useful, especially for Python scripts.
+- The line `#!/usr/bin/env python3` is known as a **shebang** (or "hashbang"). It's used in a script to specify the interpreter that should be used to run the script. Let’s break it down in detail so that you can understand how it works and why it’s useful, especially for Python scripts.
 
-### 1. **Shebang (#!)**
+## 1. **Shebang (#!)**
 - The shebang (`#!`) at the start of the script tells the system that this file should be executed as a script.
 - The line following the shebang specifies the **path** to the interpreter that will be used to execute the code in the script.
 
@@ -76,7 +76,7 @@ In this case:
 - `/usr/bin/env`: Refers to the **`env`** command, which is used to find the interpreter (in this case, `python3`).
 - `python3`: Specifies that the script should be executed using Python 3.
 
-### 2. **The `env` Command**
+## 2. **The `env` Command**
 - The **`env`** command is used to find and run a program or command, looking through the **environment's `PATH`** to find the specified interpreter.
 - When you use `/usr/bin/env`, it searches for the `python3` interpreter in the directories listed in the `PATH` environment variable, which are places where executable programs are typically stored.
 
