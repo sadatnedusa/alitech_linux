@@ -1,6 +1,6 @@
 # traps
-## In Linux, "traps" refer to a mechanism that allows a script or a program to catch and handle signals or specific events. 
-## This is commonly used in shell scripting to provide better control over how a script behaves when it receives certain signals.
+### In Linux, "traps" refer to a mechanism that allows a script or a program to catch and handle signals or specific events. 
+### This is commonly used in shell scripting to provide better control over how a script behaves when it receives certain signals.
 
 - Here’s a detailed overview:
 
