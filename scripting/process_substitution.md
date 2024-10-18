@@ -179,4 +179,158 @@ cat >(sort) <(echo -e "banana\napple\norange")
 
 These examples demonstrate how process substitution can streamline workflows in Linux shell scripting. 
 By using process substitution, you can avoid creating temporary files, make scripts cleaner, and enhance efficiency. 
-If you have any specific scenarios you want to explore or need further clarification, feel free to ask!
+
+
+---
+
+- A real-time example that demonstrates the practical use of process substitution in a scenario where you're working with log files.
+- This example will illustrate how you can analyze and compare the outputs of commands without creating intermediate files.
+
+### Real-Time Example: Analyzing Web Server Logs
+
+- Imagine you have two web server log files, `access_log_2023.log` and `access_log_2024.log`, and you want to analyze the requests made to your server for specific URLs. 
+- You want to find out how many requests were made to a particular endpoint, say `/api/data`, in both years, and compare the results.
+
+### Step-by-Step Implementation
+
+1. **Check Request Counts**: You want to count the number of requests to `/api/data` in both log files.
+
+2. **Use `grep` to Filter and `wc` to Count**: You can use `grep` to search for the endpoint in each log file and then pipe that output to `wc -l` to count the number of occurrences.
+
+### Using Process Substitution
+
+Here’s how you can do this using process substitution:
+
+```bash
+# Count requests for /api/data in both log files
+echo "Request count for /api/data in 2023:"
+grep "/api/data" <(cat access_log_2023.log) | wc -l
+
+echo "Request count for /api/data in 2024:"
+grep "/api/data" <(cat access_log_2024.log) | wc -l
+```
+
+### Explanation
+
+- **`<(cat access_log_2023.log)`**: This uses process substitution to pass the contents of `access_log_2023.log` to `grep`.
+- **`grep "/api/data"`**: This searches for the string `/api/data` in the provided log file.
+- **`wc -l`**: This counts the number of lines outputted by `grep`, which corresponds to the number of requests made to `/api/data`.
+
+### Full Script Example
+
+You can combine this into a single script to analyze both logs:
+
+```bash
+#!/bin/bash
+
+# Define log files
+log_file_2023="access_log_2023.log"
+log_file_2024="access_log_2024.log"
+
+# Count requests for /api/data in both log files
+echo "Request count for /api/data in 2023:"
+grep "/api/data" <(cat "$log_file_2023") | wc -l
+
+echo "Request count for /api/data in 2024:"
+grep "/api/data" <(cat "$log_file_2024") | wc -l
+```
+
+### Output
+
+When you run this script, you might see output similar to this:
+
+```
+Request count for /api/data in 2023:
+120
+Request count for /api/data in 2024:
+150
+```
+
+### Summary
+
+In this example, process substitution allows you to analyze web server log files efficiently without creating any temporary files.
+You can quickly filter and count specific requests from multiple log files, making it a powerful tool for real-time analysis in various administrative and development tasks.
+
+---
+# Advanced example of process substitution in a real-world scenario involving data processing, where we combine the outputs of multiple commands to generate a report.
+
+### Advanced Example: Data Analysis and Reporting
+
+Let’s say you have a CSV file (`sales_data.csv`) containing sales data for different regions, and you want to analyze the sales performance by region over a specified period. The file has the following structure:
+
+```plaintext
+Region,Sales,Date
+North,1000,2023-01-01
+South,1500,2023-01-02
+East,1200,2023-01-03
+West,1300,2023-01-04
+North,1100,2023-01-05
+South,1600,2023-01-06
+```
+
+You want to:
+1. Calculate total sales for each region.
+2. Find the highest sales record for each region.
+3. Combine this data into a formatted report.
+
+### Steps Involved
+
+1. **Extracting Unique Regions**: Use `cut` and `sort` to extract unique regions from the CSV file.
+2. **Calculating Total Sales and Maximum Sales**: Use `awk` to process the CSV and calculate the total sales and maximum sales for each region.
+3. **Generating a Report**: Format the output using `paste`.
+
+### Complete Script Using Process Substitution
+
+Here’s how you can do this in a script:
+
+```bash
+#!/bin/bash
+
+# Define the sales data file
+sales_data="sales_data.csv"
+
+# Get unique regions
+regions=$(cut -d',' -f1 "$sales_data" | sort | uniq)
+
+# Generate total sales and maximum sales reports using process substitution
+echo "Sales Report:"
+echo "------------------------------"
+echo "Region       Total Sales      Max Sale"
+
+while read -r region; do
+    total_sales=$(awk -F',' -v region="$region" '$1 == region { total += $2 } END { print total }' "$sales_data")
+    max_sale=$(awk -F',' -v region="$region" '$1 == region { if ($2 > max) max = $2 } END { print max }' "$sales_data")
+    
+    # Format the output
+    printf "%-12s %-15s %-10s\n" "$region" "$total_sales" "$max_sale"
+done <<< "$regions"
+```
+
+### Explanation of the Script
+
+1. **Define the Sales Data File**: The `sales_data` variable holds the name of the CSV file.
+2. **Extract Unique Regions**: The `cut` command extracts the first column (Region), `sort` organizes them, and `uniq` removes duplicates.
+3. **Processing Each Region**:
+   - The `while read -r region` loop iterates over each unique region.
+   - **Calculating Total Sales**: The `awk` command checks for lines where the region matches and sums the sales.
+   - **Finding Maximum Sale**: Another `awk` command finds the maximum sales value for that region.
+4. **Output Formatting**: The `printf` command formats the output neatly into columns.
+
+### Sample Output
+
+When you run the script, the output might look like this:
+
+```
+Sales Report:
+------------------------------
+Region       Total Sales      Max Sale
+East         1200            1200      
+North        2100            1100      
+South        3100            1600      
+West         1300            1300      
+```
+
+### Summary
+
+In this advanced example, process substitution allows us to extract unique regions from a CSV file and then use those regions to compute and format a sales report without creating intermediate files. This approach makes the script cleaner, more efficient, and easier to read.
+
