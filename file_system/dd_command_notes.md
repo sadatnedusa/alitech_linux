@@ -1,4 +1,4 @@
-# Using the `dd` command to identify bad blocks on a disk and attempting to move data from bad blocks to empty ones involves a multi-step process.
+## Using the `dd` command to identify bad blocks on a disk and attempting to move data from bad blocks to empty ones involves a multi-step process.
 
 - Here’s a comprehensive approach:
 
@@ -102,5 +102,3 @@ sudo umount /mnt/new_disk
 - **Back Up Data**: Always ensure you have backups of critical data before attempting any recovery operations.
 - **Data Integrity**: After recovery, verify the integrity of the data to ensure that it has not been corrupted during the process.
 - **RAID Consideration**: If you are using RAID, consult your RAID documentation for recovery procedures, as the process may vary.
-
-This approach will help you identify bad blocks on a disk and attempt to recover data while moving it to empty blocks on another disk.
