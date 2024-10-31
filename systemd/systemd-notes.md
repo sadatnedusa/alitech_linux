@@ -157,14 +157,17 @@ Let's create a simple custom service that runs a script.
   ```
 
 - **Slow Booting**:
--- To understand more.
+
+  To understand more.
   
-  ```bash
+```bash
 systemd-analyze blame
 systemctl status plymouth-quit-wait.service
 systemctl list-dependencies --reverse plymouth-quit-wait.service
-  ```
--- Please run the following command in the terminal:
- ```bash
+```
+- Please run the following command in the terminal:
+
+  
+```bash
 systemd-analyze plot > ~/SystemdAnalyzePlot.svg
-  ```
+```
