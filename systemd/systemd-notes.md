@@ -171,3 +171,6 @@ systemctl list-dependencies --reverse plymouth-quit-wait.service
 ```bash
 systemd-analyze plot > ~/SystemdAnalyzePlot.svg
 ```
+
+![image](https://github.com/user-attachments/assets/624f9123-dfe5-42b6-bb6e-16fcef2b8b8a)
+
