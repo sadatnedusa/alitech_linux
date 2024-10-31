@@ -156,3 +156,15 @@ Let's create a simple custom service that runs a script.
   journalctl -xe
   ```
 
+- **Slow Booting**:
+-- To understand more.
+  
+  ```bash
+systemd-analyze blame
+systemctl status plymouth-quit-wait.service
+systemctl list-dependencies --reverse plymouth-quit-wait.service
+  ```
+-- Please run the following command in the terminal:
+ ```bash
+systemd-analyze plot > ~/SystemdAnalyzePlot.svg
+  ```
