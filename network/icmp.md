@@ -103,8 +103,6 @@ Using ICMP for debugging TCP issues involves:
 
 ---
 
-Sure! Let’s go through a real-life example of troubleshooting a TCP connectivity issue using ICMP.
-
 ### Scenario
 
 Imagine you are the network administrator for a small company. Users are reporting that they cannot connect to an internal application hosted on a server with the IP address `192.168.1.100`. The application uses TCP port 8080.
