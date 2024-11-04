@@ -197,3 +197,9 @@ While DHCP provides many benefits, it also presents security challenges:
 
 
 ![image](https://github.com/user-attachments/assets/e6971e8f-e7a7-4875-9631-8ef79d57d23f)
+
+
+![image](https://github.com/user-attachments/assets/36dca7a9-1cc9-48e2-a466-b734978277c7)
+
+
+![image](https://github.com/user-attachments/assets/5e6cb94a-0c64-43ce-a06d-482f28fa592b)
