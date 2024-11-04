@@ -199,3 +199,140 @@ While DHCP provides many benefits, it also presents security challenges:
 
 
 ![image](https://github.com/user-attachments/assets/5e6cb94a-0c64-43ce-a06d-482f28fa592b)
+
+---
+# Configuring a DHCP server on Red Hat Enterprise Linux (RHEL) involves several steps.
+## Below are the detailed steps for setting up a DHCP server, along with configuration examples.
+
+### 1. Prerequisites
+
+- **Install DHCP Server Package**: Ensure you have root privileges and that your system is up to date. Install the DHCP server package if it’s not already installed.
+
+  ```bash
+  sudo yum install dhcp
+  ```
+
+### 2. Configure DHCP Server
+
+The main configuration file for the DHCP server is located at `/etc/dhcp/dhcpd.conf`. You will need to edit this file to set up your DHCP server.
+
+#### Example Configuration
+
+1. **Open the Configuration File**:
+
+   ```bash
+   sudo vi /etc/dhcp/dhcpd.conf
+   ```
+
+2. **Basic Configuration**:
+
+   Below is an example configuration to set up a DHCP server for the subnet `192.168.1.0/24`.
+
+   ```bash
+   # DHCP Server Configuration file.
+
+   option domain-name "example.com";
+   option domain-name-servers 8.8.8.8, 8.8.4.4;
+
+   default-lease-time 600;
+   max-lease-time 7200;
+
+   subnet 192.168.1.0 netmask 255.255.255.0 {
+       range 192.168.1.10 192.168.1.50;
+       option routers 192.168.1.1;
+       option subnet-mask 255.255.255.0;
+       option broadcast-address 192.168.1.255;
+       option domain-name-servers 8.8.8.8;
+   }
+   ```
+
+   ### Explanation of Configuration Options
+
+   - `option domain-name`: Specifies the domain name to be used by clients.
+   - `option domain-name-servers`: Specifies the DNS servers that the clients will use.
+   - `default-lease-time`: The default lease time (in seconds) for IP addresses.
+   - `max-lease-time`: The maximum lease time (in seconds) for IP addresses.
+   - `subnet`: Defines the subnet for which this DHCP configuration is applicable.
+     - `range`: The range of IP addresses that can be assigned to clients.
+     - `option routers`: The default gateway for the clients.
+     - `option subnet-mask`: The subnet mask for the subnet.
+     - `option broadcast-address`: The broadcast address for the subnet.
+
+### 3. Configure the DHCP Service
+
+1. **Edit the DHCP Service Configuration**:
+
+   The DHCP service needs to know which interface to listen on. Open the `dhcpd` configuration file and specify the interface.
+
+   ```bash
+   sudo vi /etc/sysconfig/dhcpd
+   ```
+
+   Set the `DHCPDARGS` variable to your network interface (e.g., `eth0` or `ens33`):
+
+   ```bash
+   DHCPDARGS=eth0
+   ```
+
+### 4. Start and Enable the DHCP Service
+
+1. **Start the DHCP Service**:
+
+   ```bash
+   sudo systemctl start dhcpd
+   ```
+
+2. **Enable the DHCP Service to Start on Boot**:
+
+   ```bash
+   sudo systemctl enable dhcpd
+   ```
+
+3. **Check the Status of the DHCP Service**:
+
+   ```bash
+   sudo systemctl status dhcpd
+   ```
+
+### 5. Configure Firewall Rules
+
+If you have a firewall enabled, you need to allow DHCP traffic:
+
+1. **Allow DHCP in the Firewall**:
+
+   ```bash
+   sudo firewall-cmd --permanent --add-service=dhcp
+   sudo firewall-cmd --reload
+   ```
+
+### 6. Verify DHCP Operation
+
+1. **Check the DHCP Leases**: Leases are recorded in the `/var/lib/dhcp/dhcpd.leases` file.
+
+   ```bash
+   cat /var/lib/dhcp/dhcpd.leases
+   ```
+
+2. **Use a Client Machine**: Connect a client to the network and check if it receives an IP address from the DHCP server.
+
+   On a Linux client, you can use:
+
+   ```bash
+   sudo dhclient
+   ```
+
+   On Windows, use:
+
+   ```powershell
+   ipconfig /renew
+   ```
+
+### 7. Troubleshooting
+
+- **Logs**: Check the DHCP server logs for any errors or messages.
+
+  ```bash
+  sudo tail -f /var/log/messages
+  ```
+
+- **SELinux**: If you are running SELinux, make sure it’s configured properly to allow DHCP operations.
