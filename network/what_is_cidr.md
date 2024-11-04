@@ -286,3 +286,62 @@ Thus, the broadcast address for the subnet `192.168.1.0/26` is `192.168.1.63`.
 
 ### Summary:
 The broadcast address is a vital networking concept that facilitates efficient communication across all devices within a subnet. By allowing a single message to reach multiple devices, it simplifies various network functions, such as discovery and configuration. If you have further questions or need examples related to a specific scenario, feel free to ask!
+
+---
+
+## Question : Divide 192.168.0./24 into four subnets?
+
+To divide the network `192.168.1.0/24` into 4 subnets, you can use a subnetting method that increases the subnet prefix length. Here’s how to do it step-by-step:
+
+### Step 1: Determine the New Subnet Mask
+
+1. **Original Subnet**: `192.168.1.0/24`
+   - The `/24` means that the first 24 bits are for the network part, leaving 8 bits for the host part.
+   - In decimal, the subnet mask is `255.255.255.0`.
+
+2. **Calculate Required Subnets**:
+   - You want to create **4 subnets**. To find the number of bits needed to create 4 subnets, use the formula \(2^n \geq \text{Number of Subnets}\), where \(n\) is the number of bits.
+   - \(2^2 = 4\), so you need 2 bits.
+
+3. **New Subnet Mask**:
+   - Add 2 bits to the original `/24` to get the new subnet mask:
+   - New subnet mask: `/26` (which is `255.255.255.192` in decimal).
+
+### Step 2: Calculate the Subnets
+
+With a `/26` subnet mask, each subnet will have \(2^{(32-26)} = 2^6 = 64\) addresses, with 62 usable for hosts (2 addresses are reserved for network and broadcast).
+
+#### Subnet Breakdown:
+
+1. **Subnet 1**:
+   - **Network Address**: `192.168.1.0/26`
+   - **Usable IP Range**: `192.168.1.1` to `192.168.1.62`
+   - **Broadcast Address**: `192.168.1.63`
+
+2. **Subnet 2**:
+   - **Network Address**: `192.168.1.64/26`
+   - **Usable IP Range**: `192.168.1.65` to `192.168.1.126`
+   - **Broadcast Address**: `192.168.1.127`
+
+3. **Subnet 3**:
+   - **Network Address**: `192.168.1.128/26`
+   - **Usable IP Range**: `192.168.1.129` to `192.168.1.190`
+   - **Broadcast Address**: `192.168.1.191`
+
+4. **Subnet 4**:
+   - **Network Address**: `192.168.1.192/26`
+   - **Usable IP Range**: `192.168.1.193` to `192.168.1.254`
+   - **Broadcast Address**: `192.168.1.255`
+
+### Summary of Subnets:
+
+| Subnet      | Network Address    | Usable IP Range                | Broadcast Address  |
+|-------------|--------------------|--------------------------------|---------------------|
+| Subnet 1    | 192.168.1.0/26     | 192.168.1.1 - 192.168.1.62     | 192.168.1.63        |
+| Subnet 2    | 192.168.1.64/26    | 192.168.1.65 - 192.168.1.126   | 192.168.1.127       |
+| Subnet 3    | 192.168.1.128/26   | 192.168.1.129 - 192.168.1.190  | 192.168.1.191       |
+| Subnet 4    | 192.168.1.192/26   | 192.168.1.193 - 192.168.1.254  | 192.168.1.255       |
+
+### Points to ponder
+
+By increasing the subnet prefix from `/24` to `/26`, we effectively divided the original network `192.168.1.0/24` into 4 smaller subnets, each capable of supporting up to 62 hosts.
