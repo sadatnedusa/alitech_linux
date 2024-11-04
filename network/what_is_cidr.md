@@ -43,5 +43,3 @@ If an ISP has multiple customers with networks `192.168.1.0/24`, `192.168.2.0/24
 - **Network administrators** use CIDR to create subnets that precisely fit their needs.
 - **ISPs** use CIDR to allocate IP address blocks to customers, making IP address distribution more efficient.
 - **Routers** can handle fewer, more aggregated routes, optimizing routing and improving performance on the internet.
-
-Would you like to explore subnetting in CIDR, or how CIDR is used with specific routing protocols?
