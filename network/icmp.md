@@ -215,3 +215,53 @@ In this real-life scenario, you utilized ICMP to:
 3. Analyze **ICMP messages** to uncover a "Port Unreachable" error.
 4. Verify the application’s status and check firewall configurations to resolve the issue.
 
+---
+# When to Use ICMP (Ping)
+
+**1. Basic Connectivity Check:**
+   - Use ICMP, specifically the `ping` command, when you need to verify if a host is reachable on the network. This is the first step in troubleshooting connectivity issues.
+   - **Example:** If users report they can't access a server, ping the server’s IP address to check if it’s online.
+
+**2. Round Trip Time Measurement:**
+   - `ping` provides the round trip time (RTT) for packets sent to the target. This information is useful to assess the network performance and latency.
+   - **Example:** You want to know if a remote server is responsive and how long it takes to respond to requests.
+
+**3. Detecting Network Outages:**
+   - Use ICMP to see if there are broader network issues affecting connectivity. If several hosts fail to respond to ping, there may be a network outage.
+   - **Example:** If multiple devices in a network segment are unresponsive, this may indicate a switch or router issue.
+
+**4. Diagnosing Firewall Issues:**
+   - If a host responds to ping, but other services are not reachable, it may suggest that a firewall is blocking specific ports while allowing ICMP.
+   - **Example:** A web server that responds to ping but not to HTTP requests may have a firewall rule blocking port 80 or 443.
+
+### When to Use Traceroute
+
+**1. Identifying Network Path:**
+   - Use `traceroute` to visualize the path packets take to reach a destination. This is helpful to see which routers the packets pass through and where delays might occur.
+   - **Example:** If you experience slow connectivity to a remote server, you can use `traceroute` to see where the delays are happening along the route.
+
+**2. Locating Bottlenecks:**
+   - When performance issues occur, `traceroute` helps identify which hop is causing high latency or packet loss.
+   - **Example:** If a specific router is timing out (showing `* * *` in the output), it indicates that further investigation is needed at that network point.
+
+**3. Diagnosing Routing Issues:**
+   - If packets are not reaching their destination, `traceroute` can help identify misconfigurations or routing loops in the network.
+   - **Example:** If the route to a destination includes unexpected hops or goes through incorrect paths, this suggests routing configuration issues.
+
+**4. Monitoring Path Changes:**
+   - Regularly using `traceroute` to a critical host can help detect changes in the network path, indicating potential routing changes that may affect performance.
+   - **Example:** If an ISP reroutes traffic and you notice different hops or increased latency, you can document this for further investigation.
+
+### Summary
+
+- **Use ICMP (Ping)** for:
+  - Basic connectivity checks.
+  - Measuring round trip time and latency.
+  - Detecting network outages.
+  - Diagnosing firewall issues.
+
+- **Use Traceroute** for:
+  - Identifying the network path to a destination.
+  - Locating bottlenecks in network performance.
+  - Diagnosing routing issues.
+  - Monitoring changes in network paths over time.
