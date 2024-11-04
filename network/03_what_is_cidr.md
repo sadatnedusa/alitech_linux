@@ -1,7 +1,7 @@
 ## What is CIDR?
 
-- https://datatracker.ietf.org/doc/html/rfc1519
-- 
+- Ref : https://datatracker.ietf.org/doc/html/rfc1519
+  
 **CIDR (Classless Inter-Domain Routing)** is a method for allocating and managing IP addresses more efficiently than the older system based on classful networking. 
 It helps optimize the use of IP address space and improves routing by reducing the size of routing tables.
 
@@ -103,6 +103,40 @@ Each branch's router can advertise its subnet to the main office using summarize
 
 ---
 
+**ICANN (Internet Corporation for Assigned Names and Numbers)** is a non-profit organization responsible for coordinating and overseeing several key functions of the global internet.
+Its authority spans various aspects of internet infrastructure to ensure a secure, stable, and unified global internet.
+
+### What ICANN Does:
+1. **Domain Name System (DNS) Management**:
+   - ICANN oversees the policies for the **Domain Name System**, ensuring that domain names (e.g., `example.com`) map correctly to their corresponding **IP addresses**. This helps users access websites using human-readable addresses instead of complex numeric IPs.
+
+2. **IP Address Allocation**:
+   - ICANN coordinates with **Regional Internet Registries (RIRs)** to allocate and manage **IP address blocks** to different regions globally. This ensures the distribution of IPv4 and IPv6 addresses follows a structured and equitable policy.
+
+3. **Root Zone Management**:
+   - ICANN manages the **root zone** of the DNS, which is the top-level directory that helps route internet traffic. This includes the maintenance of root name servers and delegation of **Top-Level Domains (TLDs)** like `.com`, `.org`, and country-specific TLDs like `.uk` and `.jp`.
+
+4. **Protocol Parameter Assignment**:
+   - Through its collaboration with other organizations such as the **Internet Engineering Task Force (IETF)**, ICANN helps assign protocol parameters to ensure consistent standards for internet protocols.
+
+5. **Policy Development**:
+   - ICANN facilitates the development of internet policies through a **multi-stakeholder model**. This model includes the participation of businesses, governments, non-profits, and technical experts to create and agree on policies that guide the management of internet resources.
+
+6. **Accreditation of Domain Registrars**:
+   - ICANN accredits domain name registrars, which are companies authorized to sell domain names to the public (e.g., GoDaddy, Namecheap). This regulation ensures registrars follow agreed-upon standards and protocols for domain registration and management.
+
+### Example of ICANN's Authority in Action:
+When a new **Top-Level Domain (TLD)** like `.shop` or `.app` is introduced, ICANN handles the review and approval process. It sets the rules for managing the TLD, monitors the registry that operates it, and ensures that the TLD's operation aligns with global internet standards.
+
+### Importance of ICANN:
+ICANN's authority is crucial for maintaining the **global interoperability** of the internet. It ensures that domain names are unique, IP addresses are distributed fairly, and internet protocols are standardized, enabling devices worldwide to communicate seamlessly.
+
+### Key Takeaways:
+- ICANN’s role is fundamental to the operation of the internet's addressing system.
+- It operates based on a **multi-stakeholder governance model**, emphasizing inclusivity and collaboration.
+- Although ICANN's decisions affect internet infrastructure globally, it operates with transparency and accountability through public meetings and input from various internet stakeholders.
+
+---
 
 ### Summary of CIDR in Subnetting and Routing:
 
