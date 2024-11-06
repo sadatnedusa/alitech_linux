@@ -232,3 +232,102 @@ This confirms that incoming ICMP "echo-request" packets (ping requests) are now 
    ```bash
    sudo iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
    ```
+---
+
+
+### **Task 1: Remove the ICMP Block Rule**
+
+To remove the rule blocking ICMP requests (which was added in **Task 4**), you need to **delete** the specific iptables rule that blocks incoming ICMP `echo-request` packets.
+
+#### **Step 1: Identify the Rule to Delete**
+
+Run the following command to list all iptables rules and identify the ICMP block rule:
+
+```bash
+sudo iptables -L -v -n --line-numbers
+```
+
+Look for the rule that blocks ICMP requests. It will look similar to this:
+
+```bash
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+    num  target     prot opt in     out     source               destination
+    1    DROP       icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmp echo-request
+```
+
+In this case, the rule number is **1**.
+
+#### **Step 2: Delete the Rule**
+
+To remove the rule, use the `-D` option with the rule number:
+
+```bash
+sudo iptables -D INPUT 1
+```
+
+This will **delete** the rule that blocks ICMP requests.
+
+#### **Step 3: Verify the Rule is Removed**
+
+Run the following command to verify that the ICMP block rule is removed:
+
+```bash
+sudo iptables -L -v -n
+```
+
+You should no longer see the ICMP block rule.
+
+---
+
+## **Task 5: Block Traffic from a Specific IP Address**
+
+Now, you need to add a rule to block all access from the IP range **192.0.2.0/24**, which includes addresses from **192.0.2.0** to **192.0.2.255**.
+
+#### **Step 1: Add a Rule to Block Traffic from the IP Range**
+
+Run the following command to block all traffic from the IP range **192.0.2.0/24**:
+
+```bash
+sudo iptables -A INPUT -s 192.0.2.0/24 -j DROP
+```
+
+This rule does the following:
+- **`-A INPUT`**: Appends the rule to the **INPUT** chain (inbound traffic).
+- **`-s 192.0.2.0/24`**: Specifies the source IP address range to block (**192.0.2.0/24**).
+- **`-j DROP`**: Drops all packets from this IP range.
+
+#### **Step 2: Verify the Rule**
+
+To verify that the rule has been successfully added, run:
+
+```bash
+sudo iptables -L -v -n
+```
+
+You should see an entry like this:
+
+```bash
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+    pkts bytes target     prot opt in     out     source               destination
+      0     0 DROP       all  --  *      *       192.0.2.0/24         0.0.0.0/0
+```
+
+This confirms that all traffic from the IP range **192.0.2.0/24** will be blocked.
+
+### **Recap of Commands:**
+
+1. **Remove the ICMP Block Rule:**
+   - List rules to identify the rule number:
+     ```bash
+     sudo iptables -L -v -n --line-numbers
+     ```
+   - Delete the blocking rule (replace `1` with the correct rule number if needed):
+     ```bash
+     sudo iptables -D INPUT 1
+     ```
+
+2. **Block Traffic from a Specific IP Address (192.0.2.0/24):**
+   ```bash
+   sudo iptables -A INPUT -s 192.0.2.0/24 -j DROP
+   ```
+
