@@ -1,4 +1,4 @@
-# **Task 1: Verify and Install iptables**
+## **Task 1: Verify and Install iptables**
 
 ### **Step 1: Verify if iptables is already installed**
 
@@ -40,8 +40,6 @@ sudo iptables --version
 
 This will display the version of iptables installed, confirming the installation.
 
----
-
 ### **Step 4: Check Current iptables Rules (Optional)**
 
 To check the current rules (if any) in place, you can use:
@@ -52,17 +50,15 @@ sudo iptables -L -n -v
 
 This will display the active firewall rules and their associated counters.
 
----
-
 ### **Task Summary:**
 
 1. First, verify if `iptables` is installed using `sudo iptables --version`.
 2. If not installed, use `sudo apt install iptables` (for Debian-based) or `sudo yum install iptables` (for Red Hat-based) to install it.
 3. After installation, verify by checking the `iptables` version again with `sudo iptables --version`.
 
-Let me know if you need further details on configuring specific rules for your web server!
 ---
-### **Task 2: Set Default Policies for Network Traffic**
+
+## **Task 2: Set Default Policies for Network Traffic**
 
 The objective of this task is to establish secure default policies for your firewall by setting the following default actions:
 
@@ -146,7 +142,7 @@ You should see the following output for the default policies:
 
 ---
 
-### **Task 3: Configure Rules for Essential Web Traffic**
+## **Task 3: Configure Rules for Essential Web Traffic**
 
 To ensure that your web server is accessible to users via HTTP (port 80) and HTTPS (port 443), you need to configure **iptables** to allow traffic on these ports.
 
@@ -224,8 +220,6 @@ Chain INPUT (policy DROP 0 packets, 0 bytes)
 
 This confirms that incoming ICMP "echo-request" packets (ping requests) are now blocked.
 
----
-
 ### **Recap of Commands**
 
 1. **Configure rules for essential web traffic (HTTP & HTTPS):**
@@ -238,6 +232,3 @@ This confirms that incoming ICMP "echo-request" packets (ping requests) are now 
    ```bash
    sudo iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
    ```
-
----
-
