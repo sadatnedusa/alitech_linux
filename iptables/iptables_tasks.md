@@ -235,7 +235,7 @@ This confirms that incoming ICMP "echo-request" packets (ping requests) are now 
 ---
 
 
-### **Task 1: Remove the ICMP Block Rule**
+## **Task 5: Remove the ICMP Block Rule**
 
 To remove the rule blocking ICMP requests (which was added in **Task 4**), you need to **delete** the specific iptables rule that blocks incoming ICMP `echo-request` packets.
 
@@ -279,7 +279,7 @@ You should no longer see the ICMP block rule.
 
 ---
 
-## **Task 5: Block Traffic from a Specific IP Address**
+## **Task 6: Block Traffic from a Specific IP Address**
 
 Now, you need to add a rule to block all access from the IP range **192.0.2.0/24**, which includes addresses from **192.0.2.0** to **192.0.2.255**.
 
