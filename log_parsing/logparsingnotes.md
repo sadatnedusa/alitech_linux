@@ -60,3 +60,21 @@ grep DIMM_ -A2 sysinfo-Log_*/sysinfo_log.txt | grep -v "Slot\|==\|--\|\/20" | aw
 
 grep "Slot:\|MemoryType:\|SerialNo:\|Manufacturer:\|PartNumber:" sysinfo-Log_*/sysinfo_log.txt | awk '{ORS=NR % 5? " ": "\n"; print}'
 ```
+
+
+---
+
+### How to convert a dmesg timestamp to a custom readable date format
+
+Ref : https://access.redhat.com/solutions/6091061
+
+Resolution
+
+```bash
+cat sos_commands/kernel/dmesg | sed -r 's#^\[ *([0-9]+\.[0-9]+)\](.*)#echo -n "[";echo -n $(date --date="@$(echo "$(grep btimeproc/stat|cut -d " " -f 2)+\1" | bc)" +"%c");echo -n "]";echo -n "\2"#e' >./dmesg_ts
+```
+
+
+
+
+
