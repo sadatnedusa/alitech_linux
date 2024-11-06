@@ -71,10 +71,35 @@ Ref : https://access.redhat.com/solutions/6091061
 Resolution
 
 ```bash
-cat sos_commands/kernel/dmesg | sed -r 's#^\[ *([0-9]+\.[0-9]+)\](.*)#echo -n "[";echo -n $(date --date="@$(echo "$(grep btimeproc/stat|cut -d " " -f 2)+\1" | bc)" +"%c");echo -n "]";echo -n "\2"#e' >./dmesg_ts
+
+cat sos_commands/kernel/dmesg | sed -r 's#^\[ *([0-9]+\.[0-9]+)\](.*)#echo -n "[";echo -n $(date --date="@$(echo "$(grep btime proc/stat|cut -d " " -f 2)+\1" | bc)" +"%c");echo -n "]";echo -n "\2"#e' >./dmesg_ts
+
 ```
 
+Alternatively the following bash function can be used.
 
+```bash
+sos_dmesg_with_human_timestamps () {
+    FORMAT="%a %b %d %H:%M:%S %Y"
 
+    now=$(date +%s)
+    cputime_line=$(grep -m1 "\.clock" ./proc/sched_debug)
 
+    if [[ $cputime_line =~ [^0-9]*([0-9]*).* ]]; then
+        cputime=$((BASH_REMATCH[1] / 1000))
+    fi
+
+    while IFS= read -r line; do
+        if [[ $line =~ ^\[\ *([0-9]+)\.[0-9]+\]\ (.*) ]]; then
+            stamp=$((now-cputime+BASH_REMATCH[1]))
+            echo "[$(date +"${FORMAT}" --date=@${stamp})] ${BASH_REMATCH[2]}"
+        else
+            echo "$line"
+        fi
+    done < ./sos_commands/kernel/dmesg
+}
+
+alias dmesgt=sos_dmesg_with_human_timestamps
+
+```
 
