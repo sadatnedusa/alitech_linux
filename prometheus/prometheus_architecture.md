@@ -49,8 +49,3 @@ Reference :
 
 10. **What is the role of the Pushgateway in Prometheus?**
     - **Answer:** The Pushgateway allows short-lived or batch jobs to push their metrics to Prometheus. Instead of scraping metrics, Prometheus can scrape metrics from the Pushgateway, making it easier to monitor jobs that do not run continuously.
-
-### Summary
-This overview provides insight into the Prometheus architecture and answers technical questions that might arise during interviews. 
-Understanding these concepts is crucial for effective monitoring and alerting in cloud-native environments. 
-If you need further details or specific areas of focus, feel free to ask!
