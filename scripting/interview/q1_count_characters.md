@@ -28,19 +28,19 @@ for char in $(echo "$str" | fold -w1); do
 done
 
 # Output the result
-echo "The letter 'O' appears $count times in the string '$str'."
+echo "The letter 'O' appears $count times in the string '$str'"
 ```
 
 ### Explanation:
-1. The string `HELLO WORLD` is stored in the variable `str`.
+1. The string `HELLO WORLD` is stored in the variable `str`
 2. The `fold -w1` command splits the string into individual characters.
 3. The script iterates over each character using a `for` loop.
-4. An `if` statement checks if the character is `O`, and if so, increments the `count`.
+4. An `if` statement checks if the character is `O`, and if so, increments the `count`
 5. The script finally prints the result.
 
 ### Output:
 ```bash
-The letter 'O' appears 2 times in the string 'HELLO WORLD'.
+The letter 'O' appears 2 times in the string 'HELLO WORLD'
 ``` 
 
 ### Solution 2
@@ -68,7 +68,7 @@ for char in "${char_array[@]}"; do
 done
 
 # Output the result
-echo "The letter 'O' appears $count times in the string '$str'."
+echo "The letter 'O' appears $count times in the string '$str'"
 ```
 
 ### Explanation:
@@ -80,13 +80,13 @@ echo "The letter 'O' appears $count times in the string '$str'."
    - The `for char in "${char_array[@]}"` loop iterates over each character in the array.
 
 3. **Condition and Counter**:
-   - The `if` statement checks if the character is `O`.
+   - The `if` statement checks if the character is `O`
    - The counter is incremented when `O` is found.
 
 4. **Output**:
-   - Displays the total count of `O`.
+   - Displays the total count of `O`
 
 ### Example Output:
 ```bash
-The letter 'O' appears 2 times in the string 'HELLO WORLD'.
+The letter 'O' appears 2 times in the string 'HELLO WORLD'
 ```
