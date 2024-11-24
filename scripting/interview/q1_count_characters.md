@@ -1,7 +1,7 @@
 # Q1: Write bash script to count number "O" into given string str
 
 ```
-str="HELLO WORLD".
+str="HELLO WORLD"
 ```
 ---
 
