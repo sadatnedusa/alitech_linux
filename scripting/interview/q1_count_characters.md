@@ -7,9 +7,9 @@ str="HELLO WORLD"
 
 ## Multiple ways to solve the problem
 
-## Solution 1
+### Solution 1
 
-### Bash script to count the number of occurrences of the letter `O` in the given string `str="HELLO WORLD"`:
+- Bash script to count the number of occurrences of the letter `O` in the given string `str="HELLO WORLD"`:
 
 ```bash
 #!/bin/bash
@@ -42,10 +42,10 @@ echo "The letter 'O' appears $count times in the string '$str'"
 ```bash
 The letter 'O' appears 2 times in the string 'HELLO WORLD'
 ``` 
-
+---
 ### Solution 2
 
-#### Brute Force : You can copy the string into an array and iterate over it to count the occurrences of `O`:
+- Brute Force : You can copy the string into an array and iterate over it to count the occurrences of `O`:
 
 ```bash
 #!/bin/bash
@@ -89,4 +89,42 @@ echo "The letter 'O' appears $count times in the string '$str'"
 ### Example Output:
 ```bash
 The letter 'O' appears 2 times in the string 'HELLO WORLD'
+```
+---
+### Solution 3
+
+- Bash script that reads a string from the user and counts the number of occurrences of the letter `O` (case-sensitive) in the given string.
+
+```bash
+#!/bin/bash
+
+# Read a string from the user
+echo -n "Enter a string: "
+read input_string
+
+# Count occurrences of 'O' using grep and wc
+count=$(echo "$input_string" | grep -o "O" | wc -l)
+
+# Output the result
+echo "The letter 'O' appears $count times in the given string."
+```
+
+### Explanation:
+1. **`echo -n` and `read`**:
+   - `echo -n`: Prompts the user without adding a newline.
+   - `read input_string`: Reads the user's input into the variable `input_string`.
+
+2. **`grep -o "O"`**:
+   - The `-o` flag in `grep` extracts only the matching parts (`O`) from the input string.
+
+3. **`wc -l`**:
+   - Counts the number of lines output by `grep`, which corresponds to the number of matches.
+
+4. **Output**:
+   - The script prints the number of times `O` appears in the input string.
+
+### Example:
+```bash
+Enter a string: HELLO WORLD
+The letter 'O' appears 2 times in the given string.
 ```
