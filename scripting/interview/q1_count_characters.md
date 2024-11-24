@@ -1,9 +1,11 @@
-# Q1: Given string as str="HELLO WORLD".
-## Write bash script to count number "O" into given string str
+# Q1: Write bash script to count number "O" into given string str
 
+```
+str="HELLO WORLD".
+```
 ---
 
-# Multiple ways to solve the problem
+## Multiple ways to solve the problem
 
 ## Solution 1
 
