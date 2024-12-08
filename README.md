@@ -29,7 +29,6 @@ Each section in this repository contains detailed markdown files with step-by-st
 
 Contributions are welcome! If you encounter an issue not covered or have a better solution, please open an issue or submit a pull request. Your feedback and contributions will help improve this repository for the community.
 
-
 ---
 
 ### Notes:
