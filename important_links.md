@@ -8,3 +8,9 @@
 [How to enable core file dumps when an application crashes or segmentation faults](https://access.redhat.com/solutions/4896)
 
 [Chapter 20. Analyzing a core dump](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/analyzing-a-core-dump_managing-monitoring-and-updating-the-kernel#analyzing-a-core-dump_managing-monitoring-and-updating-the-kernel)
+
+---
+## Books and references
+
+- https://www.coreboot.org/
+- http://williamstallings.com/OS-Animation/Animations.html
