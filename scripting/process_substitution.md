@@ -252,11 +252,12 @@ In this example, process substitution allows you to analyze web server log files
 You can quickly filter and count specific requests from multiple log files, making it a powerful tool for real-time analysis in various administrative and development tasks.
 
 ---
-# Advanced example of process substitution in a real-world scenario involving data processing, where we combine the outputs of multiple commands to generate a report.
+## Advanced example of process substitution in a real-world scenario involving data processing, where we combine the outputs of multiple commands to generate a report.
 
 ### Advanced Example: Data Analysis and Reporting
 
-Let’s say you have a CSV file (`sales_data.csv`) containing sales data for different regions, and you want to analyze the sales performance by region over a specified period. The file has the following structure:
+Let’s say you have a CSV file (`sales_data.csv`) containing sales data for different regions, and you want to analyze the sales performance by region over a specified period.
+The file has the following structure:
 
 ```plaintext
 Region,Sales,Date
@@ -331,6 +332,6 @@ West         1300            1300
 ```
 
 ### Summary
-
-In this advanced example, process substitution allows us to extract unique regions from a CSV file and then use those regions to compute and format a sales report without creating intermediate files. This approach makes the script cleaner, more efficient, and easier to read.
+In this advanced example, process substitution allows us to extract unique regions from a CSV file and then use those regions to compute and format a sales report without creating intermediate files.
+This approach makes the script cleaner, more efficient, and easier to read.
 
