@@ -516,8 +516,6 @@ slab: double free or corruption (out): kmalloc-128
 
 This output indicates the type of corruption and the affected cache (`kmalloc-128` in this case). You can use the stack trace to trace back to the problematic code.
 
-
-
 #### 2.5. **Advanced Debugging with `kmem_cache_create` and Custom Allocators**
 If you're developing kernel modules, you can create custom slab caches using the `kmem_cache_create()` API. This gives you control over the object management in your cache, which can help prevent fragmentation and optimize memory usage.
 
@@ -536,20 +534,16 @@ You can enable `slub_debug` for your custom cache to detect memory corruption or
 echo "U" > /sys/kernel/slab/my_cache/trace
 ```
 
-By carefully managing allocations and deallocations, you can prevent memory leaks and fragmentation in your custom cache. You can also use debugging techniques like poisoning or ftrace to monitor the usage of your custom cache.
-
-
 
 #### 2.6. **Analyzing Slab Fragmentation with `/proc/slabinfo` and `slabtop`**
 In addition to tracing and poisoning, you can use tools like `/proc/slabinfo` and `slabtop` to analyze how slab fragmentation affects memory.
 
-- **`/proc/slabinfo`**: Provides detailed information about slab cache usage, including the number of active and free objects, slab size, and more. Comparing the number of slabs and objects can indicate whether fragmentation is wasting memory.
+- **`/proc/slabinfo`**: Provides detailed information about slab cache usage, including the number of active and free objects, slab size, and more.
+-  Comparing the number of slabs and objects can indicate whether fragmentation is wasting memory.
   
 - **`slabtop`**: Provides real-time monitoring of slab cache usage, letting you observe slab growth patterns and potential inefficiencies.
 
 You can periodically check these tools to see how your caches behave under different workloads and identify caches that exhibit high fragmentation or inefficient memory usage.
-
-
 
 ### 3. **Common Kernel Debugging Scenarios**
 
@@ -566,8 +560,6 @@ You can periodically check these tools to see how your caches behave under diffe
 #### 3.3. **Excessive Slab Cache Growth**
    - **Symptoms**: System performance degradation due to excessive memory consumption.
    - **Debugging**: Use `slabinfo` and `slabtop` to identify caches growing disproportionately. Enable `slub_debug` for affected caches to detect inefficient memory usage or delayed frees. Tune kernel parameters (`vm.min_slab_ratio`) to trigger more aggressive slab reclamation.
-
-
 
 ### Summary
 
@@ -680,7 +672,8 @@ Call Trace:
   kfree+0x34/0x80
 ```
 
-Here, the kernel detects a double free or memory corruption in the `kmalloc-128` cache. The call trace shows the functions involved in the allocation and free operations, helping you trace back to the root cause of the bug.
+The kernel detects a double free or memory corruption in the `kmalloc-128` cache. 
+The call trace shows the functions involved in the allocation and free operations, helping you trace back to the root cause of the bug.
 
 ##### 2.3. **Slab Poisoning in Action**
 The poisoning process works as follows:
@@ -1228,7 +1221,7 @@ This will not only improve performance but also ensure better memory management 
 
 ---
 
-Great! Here are some **additional tools** and **examples** you can utilize for kernel memory management and debugging:
+Some **additional tools** and **examples** you can utilize for kernel memory management and debugging:
 
 ### Additional Tools
 
