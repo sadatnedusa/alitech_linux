@@ -9,6 +9,11 @@
 
 [Chapter 20. Analyzing a core dump](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/analyzing-a-core-dump_managing-monitoring-and-updating-the-kernel#analyzing-a-core-dump_managing-monitoring-and-updating-the-kernel)
 
+[cgroups in RHEL 8](https://www.redhat.com/en/blog/world-domination-cgroups-rhel-8-welcome-cgroups-v2)
+   - [World domination with Cgroups - Part 1 - Cgroup basics](https://www.redhat.com/en/blog/world-domination-cgroups-part-1-cgroup-basics)
+   - [World Domination with Cgroups - Part 2 - Turning Knobs](https://www.redhat.com/en/blog/world-domination-cgroups-part-2-turning-knobs)
+   - [World domination with cgroups - Part 3 - Thanks for the memories](https://www.redhat.com/en/blog/world-domination-cgroups-part-3-thanks-memories)
+
 ---
 ## Books and references
 
