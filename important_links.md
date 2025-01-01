@@ -13,6 +13,8 @@
    - [World domination with Cgroups - Part 1 - Cgroup basics](https://www.redhat.com/en/blog/world-domination-cgroups-part-1-cgroup-basics)
    - [World Domination with Cgroups - Part 2 - Turning Knobs](https://www.redhat.com/en/blog/world-domination-cgroups-part-2-turning-knobs)
    - [World domination with cgroups - Part 3 - Thanks for the memories](https://www.redhat.com/en/blog/world-domination-cgroups-part-3-thanks-memories)
+   - [World Domination with Cgroups - Part 4 - All the I/Os](https://www.redhat.com/en/blog/world-domination-cgroups-part-4-all-ios)
+   - [World domination with cgroups - part 5 - hand rolling your own cgroup](https://www.redhat.com/en/blog/world-domination-cgroups-part-5-hand-rolling-your-own-cgroup)
 
 ---
 ## Books and references
