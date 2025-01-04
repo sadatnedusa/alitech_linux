@@ -1,7 +1,8 @@
 ## Understanding File Descriptors.
 ### The Fundamentals
 
-A **file descriptor (FD)** is a non-negative integer that represents an open file or I/O stream in Unix-like operating systems (including Linux). 
+A **file descriptor (FD)** is a non-negative integer that represents an open file or I/O stream in Unix-like operating systems (including Linux).
+
 File descriptors are crucial for handling input/output (I/O) in Bash and programming.
 
 ### **1. What Are File Descriptors?**
@@ -127,7 +128,8 @@ exec 3>&-
 
 ## **Why Always Close Custom File Descriptors After Use?**
 
-When you open a custom file descriptor (e.g., `exec 3>file.txt`), it reserves system resources (like file handles) to keep the file descriptor active. Failing to close custom file descriptors can lead to the following issues:
+When you open a custom file descriptor (e.g., `exec 3>file.txt`), it reserves system resources (like file handles) to keep the file descriptor active. 
+Failing to close custom file descriptors can lead to the following issues:
 
 1. **Resource Leaks:**
    - Each open file descriptor consumes a limited resource in the operating system. If too many file descriptors remain open, you may reach the system's limit, preventing new files or I/O streams from being opened.
@@ -137,8 +139,6 @@ When you open a custom file descriptor (e.g., `exec 3>file.txt`), it reserves sy
 
 3. **File Locks:**
    - Some operations (e.g., writing to a file) can lock the file. If a file descriptor remains open, the lock might persist unnecessarily, blocking other programs or processes from accessing the file.
-
----
 
 ### **How to Close a Custom File Descriptor**
 
@@ -236,4 +236,3 @@ To debug or verify open file descriptors:
 3. **Best Practices:**
    - Open custom FDs only when needed.
    - Close FDs as soon as their purpose is fulfilled.
-
