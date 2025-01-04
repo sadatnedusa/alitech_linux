@@ -31,11 +31,12 @@ In Bash scripting, **redirection symbols** are used to control the input and out
 
 ---
 
-# **Understanding `2>` in Linux Bash**
+## **Understanding `2>` in Linux Bash**
 
-In Bash and other Unix-like shells, `2>` is used for **redirecting the standard error** stream to a file or another destination. To understand `2>`, it's essential to grasp the concept of **file descriptors** and how input/output (I/O) redirection works in Bash.
+In Bash and other Unix-like shells, `2>` is used for **redirecting the standard error** stream to a file or another destination.
+To understand `2>`, it's essential to grasp the concept of **file descriptors** and how input/output (I/O) redirection works in Bash.
 
-#### **File Descriptors in Unix/Linux**
+### **File Descriptors in Unix/Linux**
 
 - **File descriptors** are non-negative integers that represent open files or I/O streams in Unix/Linux systems.
 - The three standard file descriptors are:
@@ -248,7 +249,7 @@ Understanding `2>` and I/O redirection in Bash is essential for effective shell 
 It allows you to control where your command outputs go, making it easier to manage logs, debug scripts, and automate tasks.
 
 ---
-### Explanation of `2>/dev/null`
+#### Re-iterate again. Explanation of `2>/dev/null`
 
 This command specifically **hides error messages**:
 
