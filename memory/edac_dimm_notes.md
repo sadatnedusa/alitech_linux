@@ -47,6 +47,3 @@ Effective immediately:
 3. **Monitoring Tools:**
    Transition to using OEM-provided or officially supported monitoring tools for memory health reporting.
 
-### Support
-
-If you have any questions about this policy or require assistance in implementing these changes, please contact \[IT Operations / Support Contact Info].
