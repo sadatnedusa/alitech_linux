@@ -161,3 +161,7 @@ Client            Server
 
   * *TCP/IP Illustrated* by W. Richard Stevens
   * *Computer Networking: A Top-Down Approach* by Kurose & Ross
+
+
+    <img width="465" height="466" alt="image" src="https://github.com/user-attachments/assets/61bb5fe8-97f6-4e31-a198-44153da679d8" />
+
