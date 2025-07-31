@@ -37,8 +37,8 @@ In summary:
 
 ```bash
 sudo apt install tshark
-tshark -r bond0nic5downup.pcap -V
-tshark -r bond0nic5downup.pcap -V| grep -i "duplicate"
+tshark -r bond0eth2downup.pcap -V
+tshark -r bond0neth2downup.pcap -V| grep -i "duplicate"
 ```
 
 OR 
@@ -49,7 +49,7 @@ Install tcpdump and tshark on linux machine
 
 ```
 Truncated
-[Duplicate IP address detected for 172.25.60.82 (90:e2:ba:d3:f1:88) - also in use by 02:42:ac:19:3c:52 (frame 916)]
+[Duplicate IP address detected for 172.25.60.82 (xx:xx:ba:d3:f1:88) - also in use by 02:42:ac:19:3c:52 (frame 916)]
 [Expert Info (Warning/Sequence): Duplicate IP address configured (172.25.60.82)]
  	            [Duplicate IP address configured (172.25.60.82)]
 	            [This is a TCP duplicate ack]
@@ -73,8 +73,8 @@ Ref: https://serverfault.com/questions/38626/how-can-i-read-pcap-files-in-a-frie
 ## How to create pcap file	
 
 ```bash
-tcpdump -i nic5 -w /tmp/nic5.pcap
-tcpdump -i nic6 -w /tmp/nic6.pcap
+tcpdump -i eth2 -w /tmp/eth2.pcap
+tcpdump -i eth3 -w /tmp/eth3.pcap
 ```
 
 ---
